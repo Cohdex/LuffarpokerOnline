@@ -30,6 +30,7 @@
 			</Policies>
 			
 			<DefaultRolloverStrategy>
+				<!-- delete rollovered files older than 3 days -->
 				<Delete basePath="${baseDir}" maxDepth="1">
 					<IfFileName glob="app-*.log">
 						<IfLastModified age="3D" />
