@@ -9,15 +9,25 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import se.cohdex.luffarpoker.util.MyStringUtil;
 
+/**
+ * Controller for handling /greeting requests.
+ * 
+ * @author Jonathan Cohlin
+ */
 @Controller
 public class GreetingController {
 
 	private static final Logger LOG = LogManager.getLogger();
 
-	public GreetingController() {
-		LOG.error("GreetingController created", new Exception("message", new Exception("nested exception")));
-	}
-
+	/**
+	 * Handles /greeting requests. Takes the input name parameter, capitalizes it
+	 * and supplies it to the model for presenting in the greeting view. Returns the
+	 * greeting view.
+	 * 
+	 * @param name  name to show in greeting
+	 * @param model the MVC model
+	 * @return the name of the greeting view
+	 */
 	@GetMapping("/greeting")
 	public String greeting(@RequestParam(name = "name", required = false, defaultValue = "World") String name,
 			Model model) {
