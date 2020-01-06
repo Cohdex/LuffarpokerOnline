@@ -21,8 +21,10 @@
 			</thead>
 			<tbody>
 				<tr th:each="round : ${game.rounds}">
-					<td><span th:text="${round.roundType}"></span></td>
-					<td th:each="player : ${game.players}"><span th:text="${round.playerScores.get(player)}">Player Round Score</span></td>
+					<td><span th:text="${round.roundType}">Round Type</span></td>
+					<td th:each="player : ${game.players}">
+						<span th:text="${round.playerScores.get(player)}">Player Round Score</span>
+					</td>
 				</tr>
 				<tr>
 					<th>Total:</th>
