@@ -1,12 +1,11 @@
 package se.cohdex.luffarpoker.controller;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import lombok.extern.log4j.Log4j2;
 import se.cohdex.luffarpoker.util.MyStringUtil;
 
 /**
@@ -15,9 +14,8 @@ import se.cohdex.luffarpoker.util.MyStringUtil;
  * @author Jonathan Cohlin
  */
 @Controller
+@Log4j2
 public class GreetingController {
-
-	private static final Logger LOG = LogManager.getLogger();
 
 	/**
 	 * Handles /greeting requests. Takes the input name parameter, capitalizes it
@@ -31,9 +29,9 @@ public class GreetingController {
 	@GetMapping("/greeting")
 	public String greeting(@RequestParam(name = "name", required = false, defaultValue = "World") String name,
 			Model model) {
-		LOG.info("'/greeting' requested with parameters [name='{}']", name);
+		log.info("'/greeting' requested with parameters [name='{}']", name);
 		name = MyStringUtil.capitalizeWords(name);
-		LOG.info("Name was capitalized: '{}'", name);
+		log.info("Name was capitalized: '{}'", name);
 		model.addAttribute("name", name);
 		return "greeting";
 	}

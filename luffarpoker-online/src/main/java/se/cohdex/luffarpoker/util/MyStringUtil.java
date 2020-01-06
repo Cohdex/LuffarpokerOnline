@@ -14,7 +14,7 @@ public class MyStringUtil {
 	}
 
 	/**
-	 * Takes a string of words. Each word is capitalized. Whitespaces are preserved.
+	 * Takes a string of words and capitalizes each word. Whitespaces are preserved.
 	 * <p />
 	 * Example: input = 'hello world' output = 'Hello World'
 	 * 
@@ -26,8 +26,8 @@ public class MyStringUtil {
 		StringBuilder result = new StringBuilder();
 		while (tokenizer.hasMoreTokens()) {
 			String word = tokenizer.nextToken();
-			String capitalized = Character.toUpperCase(word.charAt(0)) + word.substring(1).toLowerCase();
-			result.append(capitalized);
+			result.append(Character.toUpperCase(word.charAt(0)));
+			result.append(word.substring(1).toLowerCase());
 		}
 		return result.toString();
 	}

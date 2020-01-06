@@ -1,12 +1,13 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 	<head>
-		<title>Luffarpoker Online | Greeting</title>
+		<title>Luffarpoker Online | New Game</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	</head>
 	
 	<body>
 		<a href="/">home</a>
-		<p th:text="|Hello, ${name}!|"/>
+		<p>Enter a Game-ID to join a game</p>
+		<input type="text" name="gameId" th:value="${gameId}" />
 	</body>
 </html>

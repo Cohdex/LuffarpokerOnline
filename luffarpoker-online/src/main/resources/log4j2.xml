@@ -2,7 +2,7 @@
 <Configuration>
 	<Properties>
 		<Property name="baseDir">logs</Property>
-		<Property name="appLogPattern">%date %-5level [%threadName|%threadId] %class: %message%n%xThrowable</Property>
+		<Property name="appLogPattern">%date %-5level [%threadName:%threadId] %class: %message%n%xThrowable</Property>
 	</Properties>
 	
 	<Appenders>
