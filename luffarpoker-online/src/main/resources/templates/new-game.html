@@ -7,6 +7,9 @@
 	
 	<body>
 		<a href="/">home</a>
+		
+		<p th:if="${unknownGameId != null}" th:text="|Could not find a game with the ID: ${unknownGameId}|">Unknown Game ID</p>
+		
 		<p>Enter a Game-ID to join a game</p>
 		<input type="text" name="gameId" th:value="${gameId}" />
 	</body>

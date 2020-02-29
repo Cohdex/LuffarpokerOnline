@@ -3,6 +3,7 @@
 	<head>
 		<title>Luffarpoker Online | Game</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<link th:href="@{/css/game.css}" rel="stylesheet" />
 	</head>
 	
 	<body>
@@ -10,24 +11,28 @@
 		
 		<p th:text="|Game room: ${game.gameId}|" />
 		
-		<table>
+		<table id="scoreboard">
 			<thead>
 				<tr>
-					<th>Round</th>
-					<th th:each="player : ${game.players}">
-						<span th:text="${player.name}">Player Name</span>
+					<th th:text="#{game.header.round}">Round</th>
+					<th th:each="player : ${game.players}" th:style="|''|">
+						<span th:text="${player.name}" th:style="|'
+								color: ${{player.color}};
+								background-color: ${{player.backgroundColor}};'|">
+							Player Name
+						</span>
 					</th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr th:each="round : ${game.rounds}">
-					<td><span th:text="${round.roundType}">Round Type</span></td>
+					<td><span th:text="#{'gameround.name.' + ${round.roundType}}">Round Type</span></td>
 					<td th:each="player : ${game.players}">
 						<span th:text="${round.playerScores.get(player)}">Player Round Score</span>
 					</td>
 				</tr>
 				<tr>
-					<th>Total:</th>
+					<th th:text="#{game.header.score}">Total Score Header</th>
 					<td th:each="player : ${game.players}">
 						<span th:text="${game.getPlayerTotalScore(player)}">Player Total Score</span>
 					</td>

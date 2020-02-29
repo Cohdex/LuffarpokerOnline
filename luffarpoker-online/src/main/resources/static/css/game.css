@@ -1,0 +1,7 @@
+#scoreboard {
+	background-color: black;
+}
+
+#scoreboard * {
+	background-color: white;
+}
